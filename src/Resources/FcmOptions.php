@@ -10,6 +10,11 @@ class FcmOptions implements FcmResource
     protected $analyticsLabel;
 
     /**
+     * @var string|null
+     */
+    protected $link;
+
+    /**
      * @return string|null
      */
     public function getAnalyticsLabel(): ?string
@@ -29,6 +34,25 @@ class FcmOptions implements FcmResource
     }
 
     /**
+     * @return string|null
+     */
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    /**
+     * @param string|null $link
+     * @return FcmOptions
+     */
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
      * @return static
      */
     public static function create(): self
@@ -43,6 +67,7 @@ class FcmOptions implements FcmResource
     {
         return [
             'analytics_label' => $this->getAnalyticsLabel(),
+            'link' => $this->getLink(),
         ];
     }
 }
